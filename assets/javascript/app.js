@@ -2,8 +2,8 @@
 $(document).ready(function() {
 
     // Initial array of fish
-    var topics = ["Marlin", "Sailfish", "Clownfish", "Siamese fighting fish", "Haddock", "Aligator Gar", "Eel", "Snook", "Guppy", "Megalodon"];
-
+    var topics = ["Clownfish", "Sailfish", "Marlin", "Siamese fighting fish", "Jellyfish", "Dolphin", "Eel", "Starfish", "Sea urchins", "Lobster", "Orca"];
+// add "Funny fish", 
     // This function re-renders the HTML to display the appropriate content
     function displayFishInfo() {
 
@@ -23,12 +23,12 @@ $(document).ready(function() {
         $("#topics-view").empty();
 
         for (i=0; i<response.data.length; i++) {
-            // store the fish picture/giffy
+
+            // creates the div for the items to go in
             var fishDiv = $("<div class='fish-item'>");
 
-    //*********************************************************************
+            // Retrieving the URL for the image (this will be the initial image)
 
-            // Retrieving the URL for the image
             var imgURL = response.data[i].images.original_still.url;
 
             // Creating an element to hold the image
@@ -38,6 +38,7 @@ $(document).ready(function() {
             image.attr(alt='"image" + i');
             image.attr("data-still", response.data[i].images.original_still.url);
             image.attr("data-animate", response.data[i].images.original.url);
+            image.addClass('fishtails');
 
             // Appending the image to the above element
             fishDiv.append(image);
@@ -61,7 +62,7 @@ $(document).ready(function() {
 
     function renderButtons() {
 
-    //  keeps from having multiples of same buttons
+    //  keeps from having multiples of all of the buttons
       $("#buttons-view").empty();
 
     // generates buttons dynamically for each fish in original array (don't need end tag 4 button)
@@ -89,21 +90,40 @@ $(document).ready(function() {
 
         if (fish) {
 
-        // Adding fish from the textbox to our array
-        topics.push(fish);
+            // Adding fish from the textbox to our array
+            topics.push(fish);
 
-        // Calling renderButtons which handles the processing of our fish array
-        renderButtons();
+            // Calling renderButtons which handles the processing of our fish array
+            renderButtons();
         }
         else
         {
-          return false;
+            return false;
         }
-
 
         // clears out the input after pressing enter/submit
         $("#fish-input").val("");
       });
+
+// This function handles events where the image is clicked
+      $("#fishtails").on("click", function(event) {
+
+          //  figure out if the picture has been clicked or not
+/*
+          if (the picture is still){
+                make the source the animated gif
+                re-render to the page
+                
+          }
+            else 
+                make the source the still picture
+                re-render to the page
+          }
+*/
+
+      });  // end of click event (when image is clicked)
+
+
 
 /// Adding an event listener to all elements with "fish" class dynamically created
     $(document).on("click", ".fish", displayFishInfo);
