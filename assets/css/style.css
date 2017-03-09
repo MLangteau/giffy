@@ -4,3 +4,10 @@ form,
 input {
 	margin: 10px;
 }
+img {
+	width: 200px;
+	height: 200px;
+}
+.fish-item {
+	display: inline-block;
+}
