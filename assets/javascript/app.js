@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     // Initial array of fish
     var topics = ["Clownfish", "Sailfish", "Marlin", "Siamese fighting fish", "Jellyfish", "Dolphin", "Eel", "Starfish", "Sea urchins", "Lobster", "Orca"];
-// add "Funny fish", 
+
     // This function re-renders the HTML to display the appropriate content
     function displayFishInfo() {
 
