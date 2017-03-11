@@ -32,13 +32,16 @@ $(document).ready(function() {
             var imgURL = response.data[i].images.original_still.url;
 
             // Creating an element to hold the image
-            var image = $("<img>").attr("src", imgURL);
+            var image = $("<img>");
 
-            // Appending the image to the above element
-            image.attr(alt='"image" + i');
-            image.attr("data-still", response.data[i].images.original_still.url);
-            image.attr("data-animate", response.data[i].images.original.url);
-            image.addClass('fishtails');
+            // Appending the images, etc. to the above element (set as still at onset)
+            
+            image.attr("src", imgURL)
+                 .attr("data-still", response.data[i].images.original_still.url)
+                 .attr("data-animate", response.data[i].images.original.url)
+                 .attr("data-state", "still")
+                 .addClass('fishtails');
+            //image.attr(alt"image" + '+ i');
 
             // Appending the image to the above element
             fishDiv.append(image);
@@ -105,25 +108,33 @@ $(document).ready(function() {
         $("#fish-input").val("");
       });
 
-// This function handles events where the image is clicked
-      $("#fishtails").on("click", function(event) {
+// This function handles events when the image is clicked
+      //$(".fishtails").on("click", function(event) {
+        $(document).on("click", '.fishtails', function() {
 
-          //  figure out if the picture has been clicked or not
-/*
-          if (the picture is still){
-                make the source the animated gif
-                re-render to the page
-                
-          }
-            else 
-                make the source the still picture
-                re-render to the page
-          }
-*/
+            console.log("in the fishtails on click");
 
+        var state = $(this).attr("data-state");
+      //  this attr method is for getting or setting any attribute of the html element
+
+        if (state === "still") {
+          // set the source and state to animated when it is still
+            console.log(" still now, move to animated  ");
+
+
+          $(this).attr("src", $(this).attr("data-animate"));  
+          $(this).attr("data-state", "animate");
+        }
+        else {
+
+          // set the source and state to still when it is animated
+
+        console.log(" animated now, move to still  ");
+
+          $(this).attr("src", $(this).attr("data-still"));
+          $(this).attr("data-state", "still");
+        }
       });  // end of click event (when image is clicked)
-
-
 
 /// Adding an event listener to all elements with "fish" class dynamically created
     $(document).on("click", ".fish", displayFishInfo);

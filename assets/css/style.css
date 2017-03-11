@@ -1,3 +1,19 @@
+body { /* Visual */ 
+  background: 
+	url("../images/ocean.jpg") no-repeat center center fixed;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+ /* width:100%;
+  height:100%;  */
+}
+h1{
+	font-size: 4em;
+	margin-left: .4em;
+	background: chocolate;
+	opacity: 0.8;
+	padding: 10px 10px; 
+	border-radius: 1em;
+}
 button,
 div,
 form,
@@ -5,13 +21,61 @@ input {
 	margin: 10px;
 }
 img {
-	width: 200px;
-	height: 200px;
+	width: 180px;
+	height: 180px;
 }
+button {
+/*	border: 2px solid #a1a1a1;
+    padding: 10px 30px; 
+    background: #dddddd;
+    border-radius: 25px;
+    background-color: green;  */
+    border: 2px solid #a1a1a1;
+    padding: 1em 2em; 
+    background: #dddddd;
+    border-radius: 1em;
+    background-color: green;
+}
+
+button:hover {
+	background-color: blue;
+}
+
 #fish-form {
-	float: right;
-	margin-right: 15%;
+    padding: 5px 5px;   
+    background: #dddddd;
+ /*   border-radius: 5px;	  */
+    border-radius: .5em;	
+    background-color: blue;
+	opacity: 0.6;
+    width: 30%;
+	margin-left: 1em;
 }
-.fish-item {
+
+#add-fish {
+	/* border: 2px solid #a1a1a1;  */
+	opacity: 1;
+	background-color: green;
+	color: black;
+}
+
+#add-fish:hover {
+	/* border: 2px solid #a1a1a1;  */
+	background-color: purple;
+}
+
+#fish-input {
+	color: black;
+}
+/*#fish-form {
+	float: right;  
+	margin-right: 15%; 
+}   */
+.fish-item {  /* topic buttons added  */
 	display: inline-block;
+	background-color: green;
+
+}
+.fish {  /* submit button  */
+	background-color: green;	
 }
