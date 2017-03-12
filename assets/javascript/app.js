@@ -8,9 +8,9 @@ $(document).ready(function() {
     function displayFishInfo() {
 
       var fish = $(this).attr("data-name");
-      var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + fish + "&limit=10&api_key=dc6zaTOxFJmzC";
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + fish + "&limit=10&api_key=dc6zaTOxFJmzC";
 
-    //   var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + fish + "&api_key=dc6zaTOxFJmzC";
+    //   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + fish + "&api_key=dc6zaTOxFJmzC";
 
        $.ajax({
         url: queryURL,
